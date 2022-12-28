@@ -1,5 +1,12 @@
 export default function validarCPF(campo) {	
 	const cpf = campo.value.replace(/[^\d]+/g,'');	
+	if(!validadorDeCpf(cpf)) {
+		campo.setCustomValidity('Esse cpf não é válido')
+		console.log('Esse cpf não é válido')
+	}
+}
+
+function validadorDeCpf(cpf) {
 	if(cpf == '') return false;	
 	// Elimina CPFs invalidos conhecidos	
 	if (cpf.length != 11 || 
@@ -40,5 +47,5 @@ export default function validarCPF(campo) {
 		return false;		
     }
 
-	return true;   
+	return true; 
 }
